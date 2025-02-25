@@ -55,5 +55,6 @@ def get_messages(username):
         return jsonify({"messages": []})
     return jsonify({"messages": messages[username]})
 
+import os
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=10000, debug=True) 
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
